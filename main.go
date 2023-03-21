@@ -2,23 +2,23 @@ package main
 
 import "fmt"
 
+type Player struct {
+	health int
+}
+
+func takeDamagefromExplosion(player *Player) {
+	fmt.Println("player is taking damage form explosion")
+	dmg := 10
+	player.health -= dmg
+}
+
+// pointer 8 byte long integer to a specific slot in memory
 func main() {
-	goku := Saiyan{
-		Name:  "Goku",
-		Power: 9000,
+	player := Player{
+		health: 100,
 	}
-	saiyanList := []Saiyan{}
-
-	saiyanList = append(saiyanList, goku)
-
-	for index, value := range saiyanList {
-		Super(&value)
-		saiyanList[index] = value
-	}
-	for _, value := range saiyanList {
-		fmt.Println(value)
-
-	}
+	takeDamagefromExplosion(&player)
+	fmt.Println(player.health)
 
 }
 func Super(s *Saiyan) {
