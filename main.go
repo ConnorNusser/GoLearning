@@ -6,6 +6,9 @@ type Player struct {
 	health int
 }
 
+func (player *Player) takeDamagefromExplosion() {
+	player.health = player.health - 10
+}
 func takeDamagefromExplosion(player *Player) {
 	fmt.Println("player is taking damage form explosion")
 	dmg := 10
@@ -17,7 +20,7 @@ func main() {
 	player := Player{
 		health: 100,
 	}
-	takeDamagefromExplosion(&player)
+	player.takeDamagefromExplosion()
 	fmt.Println(player.health)
 
 }
